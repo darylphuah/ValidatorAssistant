@@ -124,7 +124,7 @@ abstract class ValidatorAssistant {
         $this->resolveSubrules();
 
         // Apply input filters.
-        $filters = new Filters($this->inputs, $this->filters);
+        $filters = new Filters($this->inputs, $this->filters, $this);
         $this->inputs = $filters->apply();
 
         // Apply custom rules.
@@ -222,9 +222,21 @@ abstract class ValidatorAssistant {
     */
     public function scope($scope)
     {
+        $beforeMethod = 'before'.ucfirst($scope);
+        $afterMethod  = 'after'.ucfirst($scope);
+        if ( method_exists($this, $beforeMethod) )
+        {
+            call_user_func([$this,$beforeMethod]);
+        }
         $this->rules = $this->resolveScope($scope);
         $this->attributes = $this->resolveAttributes($scope);
         $this->messages = $this->resolveMessages($scope);
+
+
+        if ( method_exists($this, $afterMethod) )
+        {
+            call_user_func([$this,$afterMethod]);
+        }
 
         return $this;
     }
