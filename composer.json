@@ -1,19 +1,18 @@
 {
-    "name": "fadion/validator-assistant",
+    "name": "darylphuah/validator-assistant",
     "description": "Decouple validation from Laravel controllers with ValidatorAssistant",
     "keywords": ["laravel", "validation"],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Fadion Dashi",
-            "homepage": "http://www.streha.al",
-            "email": "jonidashi@gmail.com"
+            "name": "Daryl Phuah",
+            "email": "hawk@simpleet.com"
         }
     ],
     "support": {
-        "issues": "https://github.com/fadion/ValidatorAssistant/issues",
-        "email": "jonidashi@gmail.com"
+        "issues": "https://github.com/darylphuah/ValidatorAssistant/issues",
+        "email": "hawk@simpleet.com"
     },
     "require": {
         "php": ">=5.4.0",
