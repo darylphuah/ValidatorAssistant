@@ -3,8 +3,9 @@
 use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\App;
+use Illuminate\Contracts\Validation\Validator as ValidatorContract;
 
-abstract class ValidatorAssistant {
+abstract class ValidatorAssistant implements ValidatorContract {
 
     /**
     * @var array Validation rules
@@ -70,8 +71,8 @@ abstract class ValidatorAssistant {
 
         // Run the 'before' method, letting the
         // user execute code before validation.
-        if (method_exists($this, 'before')) {
-            $this->before();
+        if (method_exists($this, 'beforeValidate')) {
+            $this->beforeValidate();
         }
 
         $this->originalRules = $this->rules;
@@ -112,6 +113,39 @@ abstract class ValidatorAssistant {
         return $this->validator->fails();
     }
 
+    public function failed()
+    {
+        return $this->getMessages();
+    }
+
+    /**
+     * Add conditions to a given field based on a Closure.
+     *
+     * @param  string  $attribute
+     * @param  string|array  $rules
+     * @param  callable  $callback
+     * @return void
+     */
+    public function sometimes($attribute, $rules, callable $callback)
+    {
+        $this->validator->sometimes($attribute, $rules, $callback);
+    }
+
+    /**
+     * After an after validation callback.
+     *
+     * @param  callable|string  $callback
+     * @return $this
+     */
+    public function after($callback)
+    {
+        $this->after[] = function () use ($callback) {
+            return call_user_func_array($callback, [$this]);
+        };
+
+        return $this;
+    }
+
     /**
     * Run the validation using Laravel's Validator.
     *
@@ -137,7 +171,7 @@ abstract class ValidatorAssistant {
 
         // Run the 'after' method, letting the
         // user execute code after validation.
-        if (method_exists($this, 'after')) {
+        if (method_exists($this, 'afterValidate')) {
             $this->after($this->validator);
         }
     }
