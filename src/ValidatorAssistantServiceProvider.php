@@ -1,4 +1,4 @@
-<?php namespace Fadion\ValidatorAssistant;
+<?php namespace DarylPhuah\ValidatorAssistant;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -18,7 +18,7 @@ class ValidatorAssistantServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('fadion/validator-assistant');
+        $this->package('darylphuah/validator-assistant');
     }
 
 	/**

@@ -1,4 +1,4 @@
-<?php namespace Fadion\ValidatorAssistant;
+<?php namespace DarylPhuah\ValidatorAssistant;
 
 class Bindings {
 

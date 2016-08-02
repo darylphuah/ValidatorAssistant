@@ -4,7 +4,7 @@ use Mockery as m;
 
 class ValidatorAssistantTest extends PHPUnit_Framework_TestCase {
 
-    private $inputs = array('name' => 'Fadion');
+    private $inputs = array('name' => 'Daryl Phuah');
     
     public function tearDown()
     {
@@ -203,7 +203,7 @@ class ValidatorAssistantTest extends PHPUnit_Framework_TestCase {
     
 }
 
-class TestValidator extends \Fadion\ValidatorAssistant\ValidatorAssistant {
+class TestValidator extends \DarylPhuah\ValidatorAssistant\ValidatorAssistant {
     
     protected $rules = array(
         'name' => 'required',

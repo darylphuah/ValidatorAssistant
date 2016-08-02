@@ -1,10 +1,10 @@
 {
     "name": "darylphuah/validator-assistant",
-    "description": "Decouple validation from Laravel controllers with ValidatorAssistant",
+    "description": "Decouple validation from Laravel controllers with ValidatorAssistant (Forked from Fadion)",
     "keywords": ["laravel", "validation"],
     "type": "library",
     "license": "MIT",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "authors": [
         {
             "name": "Daryl Phuah",
@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Fadion\\ValidatorAssistant\\": "src"
+            "DarylPhuah\\ValidatorAssistant\\": "src"
         }
     },
     "minimum-stability": "dev"
