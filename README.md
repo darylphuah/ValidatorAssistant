@@ -6,8 +6,8 @@ ValidatorAssistant for Laravel 5.
 ```json
 {
     "require": {
-        "fadion/validator-assistant": "dev-l5"
+        "darylphuah/validator-assistant": "master"
     }
 }
 ```
-- (Optional) Add a new alias: `'ValidatorAssistant' => 'Fadion\ValidatorAssistant\ValidatorAssistant'` to your `config/app.php` file, inside the `aliases` array.
+- (Optional) Add a new alias: `'ValidatorAssistant' => 'DarylPhuah\ValidatorAssistant\ValidatorAssistant::class'` to your `config/app.php` file, inside the `aliases` array.
