@@ -113,11 +113,6 @@ abstract class ValidatorAssistant implements ValidatorContract {
         return $this->validator->fails();
     }
 
-    public function failed()
-    {
-        return $this->getMessages();
-    }
-
     /**
      * Add conditions to a given field based on a Closure.
      *
