@@ -488,4 +488,11 @@ abstract class ValidatorAssistant implements ValidatorContract {
         }
     }
 
+
+
+    public function getMessageBag()
+    {
+        return $this->messages();   
+    }
+
 }
