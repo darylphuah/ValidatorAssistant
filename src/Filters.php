@@ -44,7 +44,8 @@ class Filters {
 
                 // At least a rule is set and the input
                 // field exists.
-                if (count($rules) and isset($inputs[$name])) {
+                $field = array_get($inputs, $name);
+                if (count($rules) and $field) {
                     foreach ($rules as $rule) {
                         $splitAt = strpos($rule, ':');
 
@@ -62,12 +63,12 @@ class Filters {
 
                         // Check if rule is defined as a class method.
                         if (method_exists($this, $method)) {
-                            array_set($inputs, $name, $this->$method($inputs[$name], $argument));
+                            array_set($inputs, $name, $this->$method($field, $argument));
                         }
                         
                         // Check if ValidatorAssistant object has the same/custom filter defined
                         if ( $assistant && method_exists($assistant, $method)) {
-                            array_set($inputs, $name, $assistant->$method($inputs[$name], $argument));
+                            array_set($inputs, $name, $assistant->$method($field, $argument));
                         }
                     }
                 }
