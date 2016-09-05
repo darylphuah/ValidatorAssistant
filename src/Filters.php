@@ -62,12 +62,12 @@ class Filters {
 
                         // Check if rule is defined as a class method.
                         if (method_exists($this, $method)) {
-                            $inputs[$name] = $this->$method($inputs[$name], $argument);
+                            array_set($inputs, $name, $this->$method($inputs[$name], $argument));
                         }
                         
                         // Check if ValidatorAssistant object has the same/custom filter defined
                         if ( $assistant && method_exists($assistant, $method)) {
-                            $inputs[$name] = $assistant->$method($inputs[$name], $argument);
+                            array_set($inputs, $name, $assistant->$method($inputs[$name], $argument));
                         }
                     }
                 }
