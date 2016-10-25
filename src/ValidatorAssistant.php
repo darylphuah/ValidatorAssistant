@@ -167,7 +167,7 @@ abstract class ValidatorAssistant implements ValidatorContract {
         // Run the 'after' method, letting the
         // user execute code after validation.
         if (method_exists($this, 'afterValidate')) {
-            $this->after($this->validator);
+            $this->afterValidate($this->validator);
         }
     }
 
