@@ -16,14 +16,12 @@
         "email": "hawk@simpleet.com"
     },
     "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": "~5.2",
-        "illuminate/validation": "~5.2",
-        "illuminate/http": "~5.2"
+        "illuminate/support": "~5.6",
+        "illuminate/validation": "~5.6",
+        "illuminate/http": "~5.6"
     },
     "require-dev": {
-        "mockery/mockery": "dev-master",
-        "phpunit/phpunit": "4.7.*"
+        "mockery/mockery": "dev-master"
     },
     "autoload": {
         "psr-4": {
